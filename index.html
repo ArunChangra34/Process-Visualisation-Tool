@@ -19,22 +19,113 @@
         </header>
 
         <main class="main">
+            <!-- Algorithm Selection -->
+            <section id="algorithm-section" class="card">
+                <h2>Select Algorithm</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="algorithm-select">Scheduling Algorithm</label>
+                        <select id="algorithm-select" class="form-control">
+                            <option value="fcfs">First Come First Served (FCFS)</option>
+                            <option value="sjf">Shortest Job First (SJF)</option>
+                            <option value="srtf">Shortest Remaining Time First (SRTF)</option>
+                            <option value="rr">Round Robin (RR)</option>
+                            <option value="priority">Priority Scheduling</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="quantum-group" style="display:none;">
+                        <label for="quantum-input">Time Quantum</label>
+                        <input type="number" id="quantum-input" class="form-control"
+                               min="1" max="100" value="2" placeholder="e.g. 2">
+                    </div>
+                </div>
+            </section>
+
             <!-- Process Input Section -->
             <section id="input-section" class="card">
                 <h2>Add Processes</h2>
-                <p class="text-muted">Define your processes below to begin simulation.</p>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="process-id">Process ID</label>
+                        <input type="text" id="process-id" class="form-control"
+                               placeholder="e.g. P1" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="arrival-time">Arrival Time</label>
+                        <input type="number" id="arrival-time" class="form-control"
+                               min="0" value="0" placeholder="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="burst-time">Burst Time</label>
+                        <input type="number" id="burst-time" class="form-control"
+                               min="1" value="1" placeholder="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="priority-input">Priority</label>
+                        <input type="number" id="priority-input" class="form-control"
+                               min="0" value="0" placeholder="0">
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button id="add-process-btn" class="btn btn-primary">+ Add Process</button>
+                    <button id="clear-all-btn" class="btn btn-danger">Clear All</button>
+                    <button id="load-preset-btn" class="btn btn-outline">Load Preset</button>
+                </div>
             </section>
 
-            <!-- Visualisation Section -->
-            <section id="gantt-section" class="card">
+            <!-- Process Table -->
+            <section id="table-section" class="card" style="display:none;">
+                <h2>Process Table</h2>
+                <div class="table-wrapper">
+                    <table id="process-table" class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Process ID</th>
+                                <th>Arrival Time</th>
+                                <th>Burst Time</th>
+                                <th>Priority</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="process-tbody"></tbody>
+                    </table>
+                </div>
+                <div class="btn-group" style="margin-top:1rem;">
+                    <button id="run-btn" class="btn btn-primary">▶ Run Simulation</button>
+                </div>
+            </section>
+
+            <!-- Gantt Chart Section -->
+            <section id="gantt-section" class="card" style="display:none;">
                 <h2>Gantt Chart</h2>
-                <div id="gantt-container"></div>
+                <div id="gantt-container" class="gantt-container"></div>
             </section>
 
             <!-- Metrics Section -->
-            <section id="metrics-section" class="card">
+            <section id="metrics-section" class="card" style="display:none;">
                 <h2>Performance Metrics</h2>
-                <div id="metrics-container"></div>
+                <div id="metrics-container" class="metrics-grid"></div>
+            </section>
+
+            <!-- Results Table -->
+            <section id="results-section" class="card" style="display:none;">
+                <h2>Detailed Results</h2>
+                <div class="table-wrapper">
+                    <table id="results-table" class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Process</th>
+                                <th>AT</th>
+                                <th>BT</th>
+                                <th>CT</th>
+                                <th>TAT</th>
+                                <th>WT</th>
+                                <th>RT</th>
+                            </tr>
+                        </thead>
+                        <tbody id="results-tbody"></tbody>
+                    </table>
+                </div>
             </section>
         </main>
 
