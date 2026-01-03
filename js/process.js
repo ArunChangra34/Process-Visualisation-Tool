@@ -50,3 +50,5 @@ class Process {
         return `Process(${this.id}, AT=${this.arrivalTime}, BT=${this.burstTime}, P=${this.priority})`;
     }
 }
+
+// minor update
