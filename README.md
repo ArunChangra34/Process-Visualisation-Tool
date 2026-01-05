@@ -13,3 +13,5 @@ An interactive tool for visualizing CPU scheduling algorithms.
 
 ## License
 MIT
+
+<!-- updated -->
