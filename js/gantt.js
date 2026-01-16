@@ -97,3 +97,5 @@ function renderGanttChart(timeline) {
     }
     container.appendChild(legend);
 }
+
+// style adjustment
