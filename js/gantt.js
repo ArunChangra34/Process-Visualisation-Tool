@@ -99,3 +99,5 @@ function renderGanttChart(timeline) {
 }
 
 // style adjustment
+
+// style adjustment
