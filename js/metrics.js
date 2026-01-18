@@ -56,3 +56,5 @@ function renderMetrics(processes) {
         </div>
     `).join('');
 }
+
+// formatting
